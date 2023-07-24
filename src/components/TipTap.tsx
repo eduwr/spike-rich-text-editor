@@ -144,6 +144,7 @@ export const TipTapComponent = () => {
   const editor = useEditor({
     extensions: [
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
+      // @ts-expect-error I don't know what's going on here
       TextStyle.configure({ types: {ListItem: [ListItem.name]} }),
       StarterKit.configure({
         bulletList: {

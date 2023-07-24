@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { $getRoot, $getSelection, EditorState, $isRangeSelection, FORMAT_TEXT_COMMAND } from "lexical";
 import { useCallback, useEffect, useState } from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
@@ -47,13 +48,14 @@ function MyCustomAutoFocusPlugin() {
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
 // try to recover gracefully without losing user data.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function onError(error: any) {
   console.error(error);
 }
 
 const Toolbar = () => {
   const [editor] = useLexicalComposerContext();
-  const [isBold, setIsBold] = useState(false);
+  const [, setIsBold] = useState(false);
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
